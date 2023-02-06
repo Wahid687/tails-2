@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+
+
+<html lang="ab" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0" />
+    <meta property="og:title" content="Check out this design I made using the Best Tile Visualizer!" />
+    <meta property="og:image" content="visualizer/img/landing.png" />
+    <title>
+        WaHiD
+    </title>
+    <link rel="stylesheet" href="visualizer/css/visualizer.css" />
+
+    <!-- Google Fonts : font-family: 'Ubuntu', sans-serif; -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+
+    <script src="visualizer/js/router.js"></script>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+
+    <style id="js-styles"></style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7903897-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-7903897-7');
+    </script>
+
+    <script>
+        function inFav(sel) {
+            if (localStorage.getItem('FAV') && localStorage.getItem('FAV').indexOf(sel + "") !== -1) {
+                return 'fas';
+            } else {
+                return 'far';
+            }
+        }
+    </script>
+
+
+
+
+</head>
+
+<body class="IMContain">
+    <form name="form1" method="post" action="./" id="form1">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTk5MjQ4NDc0ZGRN0NB6vR462+HSMNC/qJCOoRZz7uGTQLmZDS8JDLSvGg==" />
+        </div>
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+        </div>
+
+        <!--------------------------------------------------------->
+        <!--------------------- Landing Window -------------------->
+        <!--------------------------------------------------------->
+        <div id="landing" class="" style="display: none">
+            <div class="content">
+                <div class="content-left">
+                    <h1>Welcome to My Tile Visualize</h1>
+                    <h4>Visualize Your Favorite Tiles and Find the Perfect Option for Your Space</h4>
+                    <p>Choose an option below or <a href="javascript:;" onclick="projects.show()">log in</a> to continue your saved project.</p>
+                    <div class="cta">
+                        <div id="begin-viz" onclick="router.navigate('roomscenes')">
+                            <span>Choose a Room</span>
+                        </div>
+                        <div id="upload" onclick="upload.show()">
+                            <span>Upload Photo</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <!--------------------------------------------------------->
+        <!----------------------- Top Menu ------------------------>
+        <!--------------------------------------------------------->
+        <div id="top-menu" class="extended">
+            <div class="nav-left">
+                <span class="header-logo" onclick="router.navigate('/')">
+                <!-- <img src="" /></span> -->
+                <div id="mobile-menu-trigger"><i class="fa fa-bars"></i></div>
+
+
+                <span id="menu-new-scene" class="extended" style="display: none">Change Room</span>
+                <span id="menu-save" class="extended" style="display: none">Save</span>
+                <span id="menu-projects" class="">My Projects</span>
+                <span id="menu-upload" class="">Upload Your Room</span>
+                <span id="menu-print" class="extended" style="display: none">Print</span>
+                <span id="menu-share" class="extended" style="display: none">Share</span>
+                <span id="menu-find-a-showroom" class="extended" style="display: none">
+                <a href="https://www.kajariaceramics.com/?utm_source=google&utm_medium=search&utm_campaign=Cat-kw-july22&gclid=CjwKCAiArNOeBhAHEiwAze_nKA1yV2WnXTpDtkICHPAbR36UvrRBwMnoivqusXcpFtGug5z-uVZQPBoCRWMQAvD_BwE" target="_blank">Find a Showroom</a>
+            </span>
+            </div>
+            <div class="nav-right">
+                <span id="menu-help" class="extended" style="display: none">Help</span>
+                <span id="menu-feedback" class="extended" style="display: none;">Feedback</span></div>
+            <!-- <span id="menu-social" class="extended" style="display: none;">
+
+                <span onclick="social.shareFacebook()">
+                    <i class="fab fa-facebook-f"></i>
+                </span>
+                <span onclick="social.shareTwitter()">
+                    <i class="fab fa-twitter"></i>
+                </span>
+                <span onclick="social.sharePintrest()">
+                    <i class="fab fa-pinterest"></i>
+                </span>
+                <span onclick="mail.setEmailMessage(); misc.showLightBox('email-lightbox')">
+                    <i class="far fa-envelope-open"></i>
+                </span>
+            </span> -->
+        </div>
+
+        <!--------------------------------------------------------->
+        <!--------------------- Roomscenes ------------------------>
+        <!--------------------------------------------------------->
+        <div id="roomscenes">
+            <div class="header">
+                <h3>Choose a Room</h3>
+
+            </div>
+
+            <div class="room-scene-filter">
+
+                <div class="selected" data-category="">
+                    VIEW ALL
+                </div>
+                <div data-category="Bathroom">
+                    BATHROOMS
+                </div>
+                <div data-category="Kitchen">
+                    KITCHENS
+                </div>
+                <div data-category="Living Room">
+                    LIVING SPACES
+                </div>
+                <!-- <div data-category="Other">
+                    OTHER ROOMS
+                </div> -->
+
+            </div>
+            <cham-roomscenes roomscenewidth="600" seriesid="7589">
+                <script type="text/template">
+                    {{for (var i=0, obj; obj=$ [i++];) {}} 
+                    <li role="option" data-type="{{obj.name}}" data-category="{{obj.name.replace(/ \d+/,'')}}"
+                        data-sortorder="{{obj.sortOrder}}">
+                        <img data-src="{{renderEngine}}getImage.ashx?spec={{obj.specifier}}&type=base&size={{$.imagesize}}" data-spec="{{obj.specifier}}" />
+                        <div class="overlay" onclick="$(this).parent().click();">
+                            Get Started
+                        </div>
+                        </li>
+                        {{}}}
+                        <li class="item break"></li>
+                        <li class="item break"></li>
+                        <li class="item break"></li>
+                        <li class="item break"></li>
+                </script>
+            </cham-roomscenes>
+        </div>
+
+        <!--------------------------------------------------------->
+        <!--------------------- Visualizer ------------------------>
+        <!--------------------------------------------------------->
+        <div id="visualizer" class="">
+            <div class="content">
+
+                <!------------------ Product Menu Section ----------------->
+                <!--------------------------------------------------------->
+                <div class="prod-col">
+
+                    <div class="tabs">
+                        <h3>Choose Your Products</h3>
+
+
+
+
+
+
+                        <div id="product-tabs">
+                            <div class="tab tab-btn-floor" data-type="FLOOR" data-target="#tab-floor" data-surfaces="Floor">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/floor.png" />
+                                    <span>Floor</span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-floor" data-type="FLOOR" data-target="#tab-floor" data-surfaces="Shower Floor">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/shower-floor.png" />
+                                    <span>Shower Floor
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-wall" data-type="WALL" data-target="#tab-wall" data-surfaces="Wall,Walls">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/wall.png" />
+                                    <span>Wall
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-wall" data-type="WALL" data-target="#tab-wall" data-surfaces="Shower Wall,Shower Walls">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/shower-wall.png" />
+                                    <span>Shower Wall
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="tab tab-btn-shower-surround" data-type="WALL" data-target="#tab-wall" data-surfaces="Shower Surround">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/shower-wall.png" />
+                                    <span>Shower Surround
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-accent" data-type="WALL" data-target="#tab-wall" data-surfaces="Shower Accent">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/accent.png" />
+                                    <span>Shower Accent
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-niche" data-type="WALL" data-target="#tab-wall" data-surfaces="Shower Niche">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/niche.png" />
+                                    <span>Shower Niche
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-bench" data-type="WALL" data-target="#tab-wall" data-surfaces="Shower Bench">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/bench.png" />
+                                    <span>Shower Bench
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-accent-wall" data-type="WALL" data-target="#tab-wall" data-surfaces="Accent Wall">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/accent.png" />
+                                    <span>Accent Wall
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-backsplash" data-type="BACKSPLASH" data-target="#tab-backsplash" data-surfaces="Backsplash">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/wall.png" />
+                                    <span>Backsplash
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="tab tab-btn-accent" data-type="BACKSPLASH" data-target="#tab-backsplash" data-surfaces="Accent">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/accent.png" />
+                                    <span>Accent
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="tab tab-btn-fireplace" data-type="FIREPLACE" data-target="#tab-fireplace" data-surfaces="Fireplace">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/fireplace.png" />
+                                    <span>Fireplace
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="tab tab-btn-counter" data-type="COUNTER" data-target="#tab-counter" data-surfaces="Countertops,Countertop,Island Countertop">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/countertop.png" />
+                                    <span>Countertops
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-shower-curb" data-type="COUNTER" data-target="#tab-counter" data-surfaces="Shower Curb">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/countertop.png" />
+                                    <span>Shower Curb
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-cabinet" data-type="CABINETS" data-target="#tab-cabinet" data-surfaces="Cabinets,Cabinet,Island Cabinets">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/cabinets.png" />
+                                    <span>Cabinets
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-paint" data-type="PAINTED WALL" data-target="#tab-paint" data-surfaces="Paint,Painted Wall,Painted Walls">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/painted-walls.png" />
+                                    <span>Painted Walls
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tab tab-btn-trim" data-type="TRIM" data-target="#tab-trim" data-surfaces="Trim">
+                                <div class="surface-thumb">
+                                    <img src="visualizer/img/icons/trim.png" />
+                                    <span>Trim
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- <div class="tab" data-type="" data-target="#tab-tile-options">
+                                <div class="surface-thumb">
+                                    <span class="tilegrout">Grout and Pattern Options
+                                    </span>
+                                </div>
+                            </div> -->
+                            <div class="c-harmony">
+                                <a id="color-harmonizer-button"></a></div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="tab-floor" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Floor</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="floor-selector"></div>
+
+                        <div>
+                            <div class="product-filters">
+                                <div class="searchbox-wrapper">
+                                    <input id="search-floor" class="searchbox" type="text" autocomplete="off" placeholder="Search" />
+                                    <div class="searchsubmit">
+                                        <img src="visualizer/img/search.png" />
+                                    </div>
+                                </div>
+                                <div class="select" id="floor-filter-type">
+                                    <span class="select-title">Filter by Type<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-type-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-type-flag" data-type="data-filter-type" data-target="#series-floor"></div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+                                <div class="select" id="floor-filter-color">
+                                    <span class="select-title">Filter by Color<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-color-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-color-flag" data-type="data-filter-color" data-target="#series-floor">
+                                            <label>
+                                                <input type="checkbox" />Ceramic/Porcelain
+
+                                            </label>
+                                        </div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+
+                                <div class="viewall">
+                                    <p>View By: <a class="filter-selected">All</a></p>
+                                    <ul class="">
+                                        <div class="close-x">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <li onclick="productMenu.viewAll('#series-floor')" class=" selected">All</li>
+                                        <li onclick="productMenu.showFav('#series-floor')">Favorites</li>
+                                        <li onclick="productMenu.showRecent('#series-floor')">Recents</li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-floor" surfacetype="FLOOR" thumbnailwidth="160" seriesid="7570" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj = $[i++];) {}}
+                                <li search-flag='1' filter-type-flag='1' filter-color-flag='1' color-flag='1' data-name="{{obj.name}}" data-color="{{obj.color.toUpperCase()}}" data-filter-type="{{obj.thumbnailRenderOptions.toUpperCase()}}" data-filter-color="{{obj.warranty.toUpperCase()}}"
+                                    data-search="{{obj.ecoFriendly.toUpperCase()}}{{obj.color.toUpperCase()}}{{obj.name.toUpperCase()}}{{obj.sku.toUpperCase()}}" data-ratio="{{obj.descriptor}}" data-surfaces="{{obj.style}}" data-dimensions="{{obj.description}}"
+                                    data-finish="{{obj.efficiency}}" data-shape="{{obj.ecoFriendly}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=300)&Size=150 "}}" alt="{{obj.color}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}} <br> {{obj.ecoFriendly}}
+                                        <span class="fav-icon"><i class="fa-heart {{inFav(obj.id)}}"></i></span>
+                                    </div>
+                                </li>
+                                {{}}}
+                            </script>
+                        </cham-series-template>
+
+                        <div class="tile-size-select">
+                            <div>
+                                <div class="inner">
+                                    <div class="close-menu">
+                                        <img src="img/close.svg" />
+                                    </div>
+                                    <h4>Choose a Tile Size</h4>
+                                    <img src="visualizer/img/line.svg">
+                                    <p class="lands">Scroll Up to choose tile size</p>
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="tab-wall" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">WALL</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="wall-selector"></div>
+
+                        <div>
+                            <div class="product-filters">
+                                <div class="searchbox-wrapper">
+                                    <input id="search-wall" class="searchbox" type="text" autocomplete="off" placeholder="Search" />
+                                    <div class="searchsubmit">
+                                        <img src="visualizer/img/search.png" />
+                                    </div>
+                                </div>
+                                <div class="select" id="wall-filter-type">
+                                    <span class="select-title">Filter by Type<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-type-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-type-flag" data-type="data-filter-type" data-target="#series-wall"></div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+                                <div class="select" id="wall-filter-color">
+                                    <span class="select-title">Filter by Color<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-color-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-color-flag" data-type="data-filter-color" data-target="#series-wall">
+                                            <label>
+                                                <input type="checkbox" />Ceramic/Porcelain
+
+                                            </label>
+                                        </div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+
+                                <div class="viewall">
+                                    <p>View By: <a class="filter-selected">All</a></p>
+                                    <ul class="">
+                                        <div class="close-x">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <li onclick="productMenu.viewAll('#series-wall')" class=" selected">All</li>
+                                        <li onclick="productMenu.showFav('#series-wall')">Favorites</li>
+                                        <li onclick="productMenu.showRecent('#series-wall')">Recents</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-wall" surfacetype="WALL" thumbnailwidth="160" seriesid="7570" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj = $[i++];) {}}
+                                <li search-flag='1' filter-type-flag='1' filter-color-flag='1' color-flag='1' class="" data-name="{{obj.name}}" data-color="{{obj.color.toUpperCase()}}" data-filter-type="{{obj.thumbnailRenderOptions.toUpperCase()}}" data-filter-color="{{obj.warranty.toUpperCase()}}"
+                                    data-search="{{obj.ecoFriendly.toUpperCase()}}{{obj.color.toUpperCase()}}{{obj.name.toUpperCase()}}{{obj.sku.toUpperCase()}}" data-ratio="{{obj.descriptor}}" data-surfaces="{{obj.style}}" data-dimensions="{{obj.description}}"
+                                    data-finish="{{obj.efficiency}}" data-shape="{{obj.ecoFriendly}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=300)&Size=150 "}}" alt="{{obj.color}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}} <br> {{obj.ecoFriendly}}
+                                        <span class="fav-icon"><i class="fa-heart {{inFav(obj.id)}}"></i></span>
+                                    </div>
+                                </li>
+                                {{}}}
+                            </script>
+                        </cham-series-template>
+
+                        <div class="tile-size-select">
+
+                            <div class="inner">
+                                <div class="close-menu">
+                                    <img src="img/close.svg" />
+                                </div>
+                                <h4>Choose a Tile Size</h4>
+                                <img src="visualizer/img/line.svg">
+                                <p class="lands">Scroll Up to choose tile size</p>
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="tab-backsplash" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Backsplash</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="backsplash-selector"></div>
+
+                        <div>
+                            <div class="product-filters">
+                                <div class="searchbox-wrapper">
+                                    <input id="search-backsplash" class="searchbox" type="text" autocomplete="off" placeholder="Search" />
+                                    <div class="searchsubmit">
+                                        <img src="visualizer/img/search.png" />
+                                    </div>
+                                </div>
+                                <div class="select" id="backsplash-filter-type">
+                                    <span class="select-title">Filter by Type<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-type-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-type-flag" data-type="data-filter-type" data-target="#series-backsplash"></div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+                                <div class="select" id="backsplash-filter-color">
+                                    <span class="select-title">Filter by Color<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-color-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-color-flag" data-type="data-filter-color" data-target="#series-backsplash">
+                                            <label>
+                                                <input type="checkbox" />Ceramic/Porcelain
+
+                                            </label>
+                                        </div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+
+                                <div class="viewall">
+                                    <p>View By: <a class="filter-selected">All</a></p>
+                                    <ul class="">
+                                        <div class="close-x">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <li onclick="productMenu.viewAll('#series-backsplash')" class=" selected">All</li>
+                                        <li onclick="productMenu.showFav('#series-backsplash')">Favorites</li>
+                                        <li onclick="productMenu.showRecent('#series-backsplash')">Recents</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-backsplash" surfacetype="BACKSPLASH" thumbnailwidth="160" seriesid="7570" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj = $[i++];) {}}
+                                <li search-flag='1' filter-type-flag='1' filter-color-flag='1' color-flag='1' class="" data-name="{{obj.name}}" data-color="{{obj.color.toUpperCase()}}" data-filter-type="{{obj.thumbnailRenderOptions.toUpperCase()}}" data-filter-color="{{obj.warranty.toUpperCase()}}"
+                                    data-search="{{obj.ecoFriendly.toUpperCase()}}{{obj.color.toUpperCase()}}{{obj.name.toUpperCase()}}{{obj.sku.toUpperCase()}}" data-ratio="{{obj.descriptor}}" data-surfaces="{{obj.style}}" data-dimensions="{{obj.description}}"
+                                    data-finish="{{obj.efficiency}}" data-shape="{{obj.ecoFriendly}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=300)&Size=150 "}}" alt="{{obj.color}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}} <br> {{obj.ecoFriendly}}
+                                        <span class="fav-icon"><i class="fa-heart {{inFav(obj.id)}}"></i></span>
+                                    </div>
+                                </li>
+                                {{}}}
+                            </script>
+                        </cham-series-template>
+
+                        <div class="tile-size-select">
+
+                            <div class="inner">
+                                <div class="close-menu">
+                                    <img src="img/close.svg" />
+                                </div>
+                                <h4>Choose a Tile Size</h4>
+                                <img src="visualizer/img/line.svg">
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="tab-fireplace" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Fireplace</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="fireplace-selector"></div>
+
+                        <div>
+                            <div class="product-filters">
+                                <div class="searchbox-wrapper">
+                                    <input id="search-fireplace" class="searchbox" type="text" autocomplete="off" placeholder="Search" />
+                                    <div class="searchsubmit">
+                                        <img src="visualizer/img/search.png" />
+                                    </div>
+                                </div>
+                                <div class="select" id="fireplace-filter-type">
+                                    <span class="select-title">Filter by Type<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-type-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-type-flag" data-type="data-filter-type" data-target="#series-fireplace"></div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+                                <div class="select" id="fireplace-filter-color">
+                                    <span class="select-title">Filter by Color<img src="visualizer/img/select-icon.png" /></span>
+                                    <div class="filter-color-options options">
+                                        <div class="close">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <div class="filter-cat" data-flag="filter-color-flag" data-type="data-filter-color" data-target="#series-fireplace">
+                                            <label>
+                                                <input type="checkbox" />Ceramic/Porcelain
+
+                                            </label>
+                                        </div>
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+
+                                <div class="viewall">
+                                    <p>View By: <a class="filter-selected">All</a></p>
+                                    <ul class="">
+                                        <div class="close-x">
+                                            <img src="img/close.svg" />
+                                        </div>
+                                        <li onclick="productMenu.viewAll('#series-fireplace')" class=" selected">All</li>
+                                        <li onclick="productMenu.showFav('#series-fireplace')">Favorites</li>
+                                        <li onclick="productMenu.showRecent('#series-fireplace')">Recents</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-fireplace" surfacetype="FIREPLACE" thumbnailwidth="160" seriesid="7570" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj = $[i++];) {}}
+                                <li search-flag='1' filter-type-flag='1' filter-color-flag='1' color-flag='1' class="" data-name="{{obj.name}}" data-color="{{obj.color.toUpperCase()}}" data-filter-type="{{obj.thumbnailRenderOptions.toUpperCase()}}" data-filter-color="{{obj.warranty.toUpperCase()}}"
+                                    data-search="{{obj.ecoFriendly.toUpperCase()}}{{obj.color.toUpperCase()}}{{obj.name.toUpperCase()}}{{obj.sku.toUpperCase()}}" data-ratio="{{obj.descriptor}}" data-surfaces="{{obj.style}}" data-dimensions="{{obj.description}}"
+                                    data-finish="{{obj.efficiency}}" data-shape="{{obj.ecoFriendly}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=300)&Size=150 "}}" alt="{{obj.color}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}} <br> {{obj.ecoFriendly}}
+                                        <span class="fav-icon"><i class="fa-heart {{inFav(obj.id)}}"></i></span>
+                                    </div>
+                                </li>
+                                {{}}}
+                            </script>
+                        </cham-series-template>
+
+                        <div class="tile-size-select">
+
+                            <div class="inner">
+                                <div class="close-menu">
+                                    <img src="img/close.svg" />
+                                </div>
+                                <h4>Choose a Tile Size</h4>
+                                <img src="visualizer/img/line.svg">
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="tab-grout" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Select Grout Colors</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <cham-series-template class="grout" id="series-backsplash-grout" thumbnailwidth="160" seriesid="7664" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj = $[i++];) {}}
+                                <li data-name="{{obj.name}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" data-color="{{obj.color}}" data-sku="{{obj.sku}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=400)&Size=250 "}}" alt="{{obj.name}}" />
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}}
+                                    </div>
+                                </li>
+                                {{}}}
+                            </script>
+                        </cham-series-template>
+                    </div>
+
+                    <div id="tab-pattern" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Patterns</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+                        <div class="pattern-list" id="backsplash-pattern-list" data-var="backsplash_pattern" data-series="#series-backsplash" data-sel="backsplash_sel"></div>
+                    </div>
+
+                    <div id="tab-tile-options" class="tab-content">
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">Grout and Pattern Options</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+                        <div id="tile-options">
+                            <h3>Apply tile products to change grout/pattern.</h3>
+                        </div>
+                    </div>
+
+                    <div id="tab-paint" class="tab-content">
+
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">PAINTED WALLS</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="paint-selector"></div>
+
+                        <div class="product-filters">
+                            <div class="select" id="paint-family">
+                                <span class="select-title">Color Family<img src="visualizer/img/select-icon.png" /></span>
+                                <div class="family-options options">
+                                    <div class="close">
+                                        <img src="img/close.svg" />
+                                    </div>
+                                    <div class="filter-cat" data-flag="family-flag" data-type="data-family" data-target="#series-paint"></div>
+                                    <a>Clear All</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-paint" surfacetype="PAINTED WALL" thumbnailwidth="160" seriesid="6244" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj=$ [i++];) {}} <li class="" data-color="{{obj.name.toUpperCase()}}"
+                                    data-type="{{obj.categoryName.toUpperCase()}}" data-brand="{{obj.manufacturerName.toUpperCase()}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" data-family="{{obj.displayName}}" role="option" family-flag="1">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=400)&Size=250 "}}" alt="{{obj.name}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}}
+                                    </div>
+                                    </li>
+                                    {{}}}
+                            </script>
+                        </cham-series-template>
+                    </div>
+
+                    <div id="tab-trim" class="tab-content">
+
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">TRIM</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="paint-selector"></div>
+
+                        <div class="product-filters">
+                            <div class="select" id="trim-family">
+                                <span class="select-title">Color Family<img src="visualizer/img/select-icon.png" /></span>
+                                <div class="family-options options">
+                                    <div class="close">
+                                        <img src="img/close.svg" />
+                                    </div>
+                                    <div class="filter-cat" data-flag="family-flag" data-type="data-family" data-target="#series-trim"></div>
+                                    <a>Clear All</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <cham-series-template id="series-trim" surfacetype="TRIM" thumbnailwidth="160" seriesid="6244" type="productswatch" active="1">
+                            <script type="text/template">
+                                 {{for (var i=0, obj; obj=$ [i++];) {}} 
+                                 <li class="" data-color="{{obj.name.toUpperCase()}}"
+                                    data-type="{{obj.categoryName.toUpperCase()}}" data-brand="{{obj.manufacturerName.toUpperCase()}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" data-family="{{obj.displayName}}" role="option" family-flag="1">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=400)&Size=250 "}}" alt="{{obj.name}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}}
+                                    </div>
+                                    </li>
+                                    {{}}}
+                            </script>
+                        </cham-series-template>
+                    </div>
+
+                    <div id="tab-counter" class="tab-content">
+
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">COUNTERTOPS</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="counter-selector"></div>
+
+                        <cham-series-template id="series-counter" surfacetype="COUNTER" thumbnailwidth="160" seriesid="7537" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj=$ [i++];) {}} 
+                                <li class="" data-color="{{obj.name.toUpperCase()}}"
+                                    data-type="{{obj.categoryName.toUpperCase()}}" data-brand="{{obj.manufacturerName.toUpperCase()}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=400)&Size=250 "}}" alt="{{obj.name}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}}
+                                    </div>
+                                    </li>
+                                    {{}}}
+                            </script>
+                        </cham-series-template>
+
+
+                    </div>
+
+                    <div id="tab-cabinet" class="tab-content">
+
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">CABINETS</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="sub-surface-selector" id="cabinet-selector"></div>
+
+                        <cham-series-template id="series-cabinets" surfacetype="CABINETS" thumbnailwidth="160" seriesid="7689" type="productswatch" active="1">
+                            <script type="text/template">
+                                {{for (var i=0, obj; obj=$ [i++];) {}}
+                                 <li class="" data-color="{{obj.name.toUpperCase()}}"
+                                    data-type="{{obj.categoryName.toUpperCase()}}" data-brand="{{obj.manufacturerName.toUpperCase()}}" data-sel="{{obj.id}}" data-seriesid="{{obj.seriesID}}" role="option">
+                                    <div class="image-wrapper">
+                                        <img data-src="{{" https://proxy.chameleonpower.com/proxy/getImage.ashx?spec="+ obj.specifier +" &type=prod&extra=(focus=400)&Size=250 "}}" alt="{{obj.name}}" />
+                                        <img class='selected-img' src='visualizer/img/selected.svg'>
+                                    </div>
+                                    <div class="title">
+                                        {{obj.name}} <br> {{obj.color}}
+                                    </div>
+                                    </li>
+                                    {{}}}
+                            </script>
+                        </cham-series-template>
+
+
+                    </div>
+
+                    <div id="tab-color-harmonizer" class="tab-content">
+
+                        <div class="tab-content-title">
+                            <h3 id="prod-type-title">DESIGNER PICKS</h3>
+                            <img src="visualizer/img/line.svg" />
+                            <div class="close-menu">
+                                <img src="img/close.svg" />
+                            </div>
+                        </div>
+
+                        <div class="presets">
+                            <div class="preset">
+                                <div class="products">
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                </div>
+                                <div class="button">Apply Collection</div>
+                            </div>
+                            <div class="preset">
+                                <div class="products">
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                </div>
+                                <div class="button">Apply Collection</div>
+                            </div>
+                            <div class="preset">
+                                <div class="products">
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                </div>
+                                <div class="button">Apply Collection</div>
+                            </div>
+                            <div class="preset">
+                                <div class="products">
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                    <div class="product"></div>
+                                </div>
+                                <div class="button">Apply Collection</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!------------------ Viz Section ----------------->
+                <!--------------------------------------------------------->
+                <div class="viz-col">
+                    <div class="viz-controls">
+                        <span id="zoom">ZOOM </span>
+                        <span id="undo" onclick="actionHistory.undo()">UNDO</span>
+                        <span id="redo" onclick="actionHistory.redo()">REDO</span>
+                    </div>
+
+                    <div id="back-to-IM" class="button" onclick="visualizer.goBackToIM()" style="position: absolute; z-index: 1; top: 10px; text-align: center; display: none;">Edit Image</div>
+                    <div id="compare-floors" class="button" onclick="compare.toggle()">Compare</div>
+
+
+                    <div id="comparer" class="hide">
+                        <div id="left-side" class="compare-side selected" onclick="compare.compareSide('left')">Apply Products to Left Side</div>
+                        <div id="right-side" class="compare-side" onclick="compare.compareSide('right')">Apply Products to Right Side</div>
+                        <div class="ba-slider">
+                            <div>
+                                <cham-viz id="cham-viz-sub" spec="" width="1500" active="0"></cham-viz>
+                                <div id="previous-prod" class="compare-prod hide">
+                                    <img class="prod-img" src="" alt="Alternate Text" />
+                                    <span></span>
+                                    <img class="expand" src="visualizer/img/expand.svg"></img>
+                                </div>
+                            </div>
+                            <div class="resize">
+                                <cham-viz id="cham-viz" spec="" width="1500" active="1" hightlightcolor="70353550"></cham-viz>
+                                <div id="current-prod" class="compare-prod hide">
+                                    <img class="prod-img" src="" alt="Alternate Text" />
+                                    <span></span>
+                                    <img class="expand" src="visualizer/img/expand.svg"></img>
+                                </div>
+                            </div>
+                            <div id="overlay"></div>
+                            <span class="handle">
+                                <span class="compare-line">
+                                    <img src="visualizer/img/compare-icon.fw.png" alt="Alternate Text" />
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Wait component
+      <cham-wait mytitle="loading..." viz-id="cham-viz"></cham-wait>-->
+        <div id="loading-screen">
+            <img src="visualizer/img/loading.png" alt="Alternate Text" />
+        </div>
+
+        <!-- Cham Projects -->
+        <cham-projects></cham-projects>
+
+        <!-- IM - Upload -->
+        <im-upload calltoaction="Start Your Project" active="0" postpage="IM.aspx" active="0"></im-upload>
+
+        <!-- Help Lightbox -->
+        <div id="help-lightbox" class="light-box-main">
+            <div class="content-main">
+                <img class="close-icon" src="visualizer/img/close.svg" alt="close image" onclick="misc.hideLightBox('help-lightbox')" />
+                <h4>Help Video</h4>
+                <iframe class="largescreen" width="560" height="315" src="https://youtube.com/watch?v=9gQMdKaXnmU&si=EnSIkaIECMiOmarE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+            </div>
+        </div>
+
+        <div id="social-lightbox" class="light-box-main">
+            <div class="content-main">
+                <img class="close-icon" src="visualizer/img/close.svg" alt="close image" onclick="misc.hideLightBox('social-lightbox')">
+                <h4>Share your Project</h4>
+
+
+                <span onclick="social.shareFacebook()">
+                    <i class="fab fa-facebook-f"></i>
+                </span>
+
+                <span onclick="social.shareTwitter()">
+                    <i class="fab fa-twitter"></i>
+
+                </span>
+
+                <span onclick="social.sharePintrest()">
+                    <i class="fab fa-pinterest-p"></i>
+
+                </span>
+
+                <span onclick="mail.setEmailMessage(); misc.showLightBox('email-lightbox')">
+
+                   <i class="far fa-envelope-open"></i>
+                </span>
+
+            </div>
+        </div>
+
+        <!-- Feedback Lightbox -->
+        <div id="feedback-lightbox" class="light-box-main">
+            <div class="content-main">
+                <img class="close-icon" src="visualizer/img/close.svg" alt="close image" onclick="misc.hideLightBox('feedback-lightbox')" />
+                <cham-feedback active="1"></cham-feedback>
+            </div>
+        </div>
+
+        <!-- Feedback Lightbox -->
+        <div id="product-view" class="light-box-main">
+            <div class="content-main">
+                <img class="close-icon" src="visualizer/img/close.svg" alt="close image" onclick="misc.hideLightBox('product-view')" />
+                <div class="content">
+                    <span class="prod-title">Prod Title</span>
+                    <div class="img-wrapper">
+                        <img class="prod-image" src="" alt="">
+                        <img class="prod-img-loading" src="visualizer/img/img-loading.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Lightbox -->
+        <div id="email-lightbox" class="light-box-main">
+            <div class="content-main">
+                <img class="close-icon" src="visualizer/img/close.svg" alt="close image" onclick="misc.hideLightBox('email-lightbox'); mail.resetEmailForm()" />
+                <div class="header">
+                    <div>Email</div>
+                </div>
+                <div id="email-feedback"></div>
+                <div class="content">
+                    To email your project to a friend, please fill in the fields below.<br>
+
+                    <label>Your Name</label>
+                    <input id="fromName" type="text" name="name" value="" />
+
+                    <label>*Your Email Address</label>
+                    <input id="fromEmail" type="email" name="from" value="" required />
+                    <div id="fromMailError" class="error-mail">Your email is required</div>
+
+                    <label>Friend's Name</label>
+                    <input id="toName" type="text" name="to-name" value="" />
+
+                    <label>*Friend's Email Address</label>
+                    <input id="toEmail" type="email" name="to" value="" required />
+                    <div id="toMailError" class="error-mail">Firend's email is required</div>
+
+                    <label>*Message</label>
+                    <textarea id="mailBody" name="message" required>
+
+                    </textarea>
+                    <div id="mailBodyError" class="error-mail">Message is required</div>
+                    <div style="float: right">
+                        <span style="font-size: 12px; display: block; margin: 0px -4px 0 0;">*required field</span>
+                    </div>
+
+                    <button class="button" id="sendMail">
+                        Send
+
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Cham viz IE scripts -->
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/webcomponentsjs/custom-elements-es5-adapter.js" type="text/javascript"></script>
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/webcomponentsjs/webcomponents-loader.js" type="text/javascript"></script>
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/pollyfills/iepollyfills.min.js" type="text/javascript"></script>
+
+    <!-- Cham viz script -->
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/cham-viz.min.js" type="text/javascript"></script>
+
+    <!-- Cham prod script -->
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/cham-prod-generic.min.js" type="text/javascript"></script>
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/cham-lazy.min.js" type="text/javascript"></script>
+
+    <!-- Image Mapper script -->
+    <script src="https://lizard.chameleonpower.com/CDN/cham-wc/im1.min.js" type="text/javascript"></script>
+
+    <!--Visualizer Scripts -->
+    <script src="visualizer/js/visualizer.js"></script>
+    <script src="visualizer/js/compare-slider.js"></script>
+    <script src="visualizer/js/mail.js"></script>
+    <script src="visualizer/js/product-menu.js"></script>
+    <script src="visualizer/js/landing.js"></script>
+    <script src="visualizer/js/projects.js"></script>
+    <script src="visualizer/js/action-history.js"></script>
+    <script src="visualizer/js/dev.js"></script>
+    <script src="visualizer/js/roomscenes.js"></script>
+    <script src="visualizer/js/top-menu.js"></script>
+    <script src="visualizer/js/misc.js"></script>
+    <script src="visualizer/js/action-history.js"></script>
+    <script src="visualizer/js/upload.js"></script>
+    <script src="visualizer/js/compare.js"></script>
+    <script src="visualizer/js/ui.js"></script>
+    <script src="visualizer/js/social.js"></script>
+    <script src="visualizer/js/app.js"></script>
+
+
+    <script>
+        document.cookie = "SiteID=BestTile";
+        document.cookie = "SiteId=BestTile";
+    </script>
+</body>
+<script>
+    if (window.IMWC) IMWC.renderEngine = 'https://proxy.chameleonpower.com/proxy/';
+</script>
+
+</html>

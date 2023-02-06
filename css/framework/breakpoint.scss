@@ -1,0 +1,142 @@
+﻿//  Valid breakpoints: desktop, laptop, large-tablet, tablet, phone
+//  Valid orientations: portrait, landscape
+//
+//  Usage - all orientations:
+//      @include breakpoint(phone) {
+//   
+//      }
+//
+//  Usage - specific orientation:
+//      @include breakpoint(phone landscape) {
+//   
+//      }
+//
+//  Usage - multiple breakpoints:
+//      @include breakpoint(tablet portrait, phone portrait) {
+//   
+//      }
+
+$breakpoints: (
+    desktop: (
+        portrait: (
+            default: ('only screen and (min-width: 1441px) and (orientation: portrait)')
+        ),
+        landscape: (
+            default: ('only screen and (min-width: 1441px) and (orientation: landscape)')
+        ),
+        all: (
+            default: ('only screen and (min-width: 1441px)')
+        )
+    ),
+    laptop: (
+        portrait: (
+            default: ('only screen and (min-width: 1025px) and (max-width: 1440px) and (orientation: portrait)')
+        ),
+        landscape: (
+            default: ('only screen and (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape)')
+        ),
+        all: (
+            default: ('only screen and (min-width: 1025px) and (max-width: 1440px)')
+        )
+    ),
+    tablet: (
+        portrait: (
+            device: ('only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)'),
+            default: ('only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)')
+        ),
+        landscape: (
+            device: ('only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)'),
+            default: ('only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)')
+        ),
+        all: (
+            device: ('only screen and (min-device-width: 768px) and (max-device-width: 1024px)'),
+            default: ('only screen and (min-width: 768px) and (max-width: 1024px)')
+        )
+    ),
+    phone: (
+        portrait: (
+            device: ('only screen and (max-device-width: 767px) and (orientation: portrait)'),
+            default: ('only screen and (max-width: 767px) and (orientation: portrait)')
+        ),
+        landscape: (
+            device: ('only screen and (max-device-width: 767px) and (orientation: landscape)'),
+            default: ('only screen and (max-width: 767px) and (orientation: landscape)')
+        ),
+        all: (
+            device: ('only screen and (max-device-width: 767px)'),
+            default: ('only screen and (max-width: 767px)')
+        )
+    )
+);
+
+@mixin breakpoint($keywords...) {
+    $media-parts: ();
+
+    @each $keyword in $keywords {
+        $keyword-type: type-of($keyword);
+        $target: default;
+        $name: null;
+        $orientation: all;
+
+        @if $keyword-type == string {
+            $name: unquote($keyword);
+        }
+        @else if $keyword-type == list {
+            $first: unquote(nth($keyword, 1));
+            $current-number: 1;
+
+            @if $first == only {
+                $target: device;
+                $current-number: 2;
+            }
+
+            $name: unquote(nth($keyword, $current-number));
+            $orientation-number: $current-number + 1;
+
+            @if $orientation-number == length($keyword) {
+                $orientation: unquote(nth($keyword, $orientation-number));
+            }
+        }
+        @else {
+            @error 'Breakpoint keyword #{$keyword} not valid.';
+        }
+
+        @if map-has-key($breakpoints, $name) {
+            $breakpoint: map-get($breakpoints, $name);
+
+            @if map-has-key($breakpoint, $orientation) {
+                $breakpoint: map-get($breakpoint, $orientation);
+
+                @if map-has-key($breakpoint, $target) {
+                    $breakpoint: map-get($breakpoint, $target);
+
+                    @if length($breakpoint) > 0 {
+                        @each $part in $breakpoint {
+                            $media-parts: append($media-parts, $part, comma);
+                        }
+                    }
+                    @else {
+                        @error 'Breakpoint name #{$name} and orientation #{$orientation} not supported.';
+                    }
+                }
+                @else {
+                    @error 'Breakpoint name #{$name} and target #{$target} not supported.';
+                }
+            }
+            @else {
+                @error 'Breakpoint orientation #{$orientation} not valid.';
+            }
+        }
+        @else {
+            @error 'Breakpoint name #{$name} not valid.';
+        }
+    }
+
+    @if length($media-parts) == 0 {
+        @error 'Breakpoint media query cound not be determined.';
+    }
+
+    @media #{$media-parts} {
+        @content;
+    }
+}

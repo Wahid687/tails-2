@@ -1,0 +1,234 @@
+/* ==========================================================================
+    GLOBAL
+   ========================================================================== */
+@import '../framework/breakpoint';
+
+$brown: #665450;
+$green: #548E93;
+$orange: #F59A23;
+$skyblue: #CAE5ED;
+$white: #ffffff;
+$lime: #b9bc08;
+$yellow: #b5651d;
+$white: white;
+$gray: #B3B3B3;
+$bottomShadow: rgba(0, 0, 0, 0.098) 0px 4px 4px;
+$dark-red: red;
+$dkgray: gray;
+$background: white;
+$outline: black;
+$ltgray: gray;
+$dkgray: gray;
+
+/*FOUR SEASONS COLORS*/
+$lightgreen: #BED84B;
+$blue: #00456B;
+$darkGreen: #BED84B;
+$black: rgba(41, 41, 41, 1);
+$lightgray: rgba(230, 230, 230, 1);
+$gray: #919190;
+$darkgray: rgba(41, 41, 41, 1);
+
+/*Great Roofing colors*/
+$theme-blue: #414143;
+
+/*Gold select Colors*/
+$theme-green: #55BDBA;
+$gray: #414143;
+$theme-red: #D9A843;
+$red: #D9A843;
+$grey:#333333;
+$gold: #D9A843;
+$theme-gold: #D9A843;
+$theme-grey: #3D3935;
+$text: #333133;
+
+body, html, #MAIN {
+    width: 100%;
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    color: $text;
+  /*  position: relative;*/
+ /*   max-height: 100vmin;*/
+}
+
+body, html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#MAIN {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+#MAIN {
+    main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        flex-direction: column;
+        display: flex;
+        min-height: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left: 25px;
+    height: 20px;
+    display: inline-block;
+    line-height: .8;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 13px;
+    vertical-align: middle;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -20px;
+}
+
+label.css-label {
+    background-image: url(/img/checkbox.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.validation-error {
+    font-size: 0.8em;
+    color: #AD0B17;
+}
+
+img.desktop-logo {
+    display: block;
+}
+
+img.mobile-logo {
+    display: none;
+}
+
+
+.view {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: 400ms opacity ease-in;
+
+    &.active {
+        opacity: 1;
+        z-index: 2;
+    }
+}
+
+
+
+cham-wait {
+    .spinner-wrapper .spinner {
+        height: auto !important;
+    }
+
+    .spinner-wrapper .spinner::before {
+        height: 80px;
+        width: 80px;
+        border: solid 7px #eee;
+        border-bottom-color: $lightgreen;
+    }
+}
+
+*:focus {
+    outline: none !important
+}
+
+@include breakpoint (tablet portrait) {
+    body, html, #MAIN {
+        max-height: 140vmin;
+    }
+}
+
+@include breakpoint (phone portrait) {
+    body, html, #MAIN {
+        max-height: 179vmin;
+    }
+}
+
+
+
+@include breakpoint (desktop, laptop) {
+    html {
+        box-sizing: border-box;
+     /*   min-height: 742px;*/
+        min-height: 925px;
+        overflow-y: auto;
+    }
+}
